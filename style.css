@@ -1,0 +1,462 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:linear-gradient(135deg,#efe8ff,#d9c6ff,#c7adff);
+    position:relative;
+}
+
+/*========== BLOBS ==========*/
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(45px);
+    opacity:.55;
+    animation:float 9s ease-in-out infinite;
+}
+
+.blob1{
+    width:260px;
+    height:260px;
+    background:#c8b6ff;
+    top:-80px;
+    left:-60px;
+}
+
+.blob2{
+    width:220px;
+    height:220px;
+    background:#d8c4ff;
+    right:-70px;
+    bottom:40px;
+    animation-delay:2s;
+}
+
+.blob3{
+    width:180px;
+    height:180px;
+    background:#b999ff;
+    left:35%;
+    bottom:-60px;
+    animation-delay:5s;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-22px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/*========== CALCULATOR ==========*/
+
+.calculator{
+    width:390px;
+    padding:28px;
+    border-radius:30px;
+    background:rgba(255,255,255,.55);
+    backdrop-filter:blur(18px);
+    border:2px solid rgba(255,255,255,.45);
+    box-shadow:0 20px 45px rgba(120,90,200,.25);
+    animation:popup .8s ease,floatCalc 5s ease-in-out infinite;
+    z-index:10;
+    padding: 30px;
+}
+
+@keyframes popup{
+    0%{
+        opacity:0;
+        transform:scale(.75);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@keyframes floatCalc{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+}
+
+.calculator:hover{
+    box-shadow:0 25px 55px rgba(120,90,200,.35);
+}
+
+/*========== TOP ==========*/
+
+.top{
+    text-align:center;
+    margin-bottom:18px;
+}
+
+.top h2{
+    font-size:30px;
+    color:#6d46c6;
+    font-weight:700;
+    animation:fadeDown .8s ease;
+}
+
+.subtitle{
+    font-size:13px;
+    color:#7d63bc;
+    margin-top:4px;
+}
+
+.creator{
+    margin-top:18px;
+    text-align:center;
+    font-size:12px;
+    color:#8d79c7;
+    letter-spacing:.8px;
+    padding-top:12px;
+    border-top:1px solid rgba(185,153,255,.25);
+}
+
+.creator span{
+    color:#6d46c6;
+    font-weight:700;
+}
+
+.creator span{
+    color:#6d46c6;
+    font-weight:600;
+}
+
+@keyframes fadeDown{
+    0%{
+        opacity:0;
+        transform:translateY(-18px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/*========== DISPLAY ==========*/
+
+.display-box{
+    margin-bottom:20px;
+}
+
+#display{
+    width:100%;
+    height:74px;
+    border:none;
+    outline:none;
+    border-radius:20px;
+    padding:18px;
+    background:#ffffff;
+    color:#694cb8;
+    font-size:30px;
+    font-weight:600;
+    text-align:right;
+    letter-spacing:1px;
+    box-shadow:inset 0 4px 10px rgba(0,0,0,.08);
+    animation:displayGlow 3s infinite alternate;
+}
+
+@keyframes displayGlow{
+    from{
+        box-shadow:0 0 8px rgba(200,182,255,.35);
+    }
+
+    to{
+        box-shadow:0 0 18px rgba(184,153,255,.8);
+    }
+}
+
+/*========== TOGGLE ==========*/
+
+.toggle-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:18px;
+    background:#b999ff;
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    margin-bottom:18px;
+    transition:.3s;
+    letter-spacing:.5px;
+}
+
+.toggle-btn:hover{
+    transform:translateY(-3px);
+    background:#a77cff;
+    box-shadow:0 10px 20px rgba(120,90,200,.35);
+}
+
+/*========== SCIENTIFIC PANEL ==========*/
+
+.scientific-panel{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:max-height .4s ease,opacity .35s ease,margin .35s ease;
+}
+
+.scientific-panel.show{
+    max-height:260px;
+    opacity:1;
+    margin-bottom:18px;
+    animation:slide .4s ease;
+}
+
+.scientific-panel button{
+    height:58px;
+    border:none;
+    border-radius:16px;
+    background:#e7dcff;
+    color:#6d46c6;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.scientific-panel button:hover{
+    background:#d7c1ff;
+    transform:translateY(-3px);
+}
+
+@keyframes slide{
+    from{
+        opacity:0;
+        transform:translateY(-12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+/*========== BUTTONS ==========*/
+
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.buttons button{
+    height:62px;
+    border:none;
+    border-radius:18px;
+    background:#ffffff;
+    color:#5f46a8;
+    font-size:20px;
+    font-weight:600;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    transition:.25s;
+    box-shadow:0 6px 14px rgba(110,80,180,.12);
+}
+
+.buttons button:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 20px rgba(110,80,180,.20);
+}
+
+.buttons button:active{
+    transform:scale(.94);
+}
+
+.buttons button::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:0;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:rgba(255,255,255,.45);
+    transition:.4s;
+}
+
+.buttons button:active::after{
+    width:170px;
+    height:170px;
+}
+
+/*========== NUMBER BUTTONS ==========*/
+
+.buttons button[data-value="0"],
+.buttons button[data-value="1"],
+.buttons button[data-value="2"],
+.buttons button[data-value="3"],
+.buttons button[data-value="4"],
+.buttons button[data-value="5"],
+.buttons button[data-value="6"],
+.buttons button[data-value="7"],
+.buttons button[data-value="8"],
+.buttons button[data-value="9"],
+.buttons button[data-value="."]{
+    background:#ffffff;
+    color:#654ab6;
+}
+
+/*========== OPERATORS ==========*/
+
+.operator{
+    background:#d8c5ff !important;
+    color:#5f38c9 !important;
+}
+
+.operator:hover{
+    background:#c8afff !important;
+}
+
+/*========== CLEAR ==========*/
+
+.clear{
+    background:#f3e6ff !important;
+    color:#a548cb !important;
+}
+
+.clear:hover{
+    background:#ead5ff !important;
+}
+
+/*========== BACKSPACE ==========*/
+
+.backspace{
+    background:#e7dbff !important;
+    color:#6b43c7 !important;
+}
+
+.backspace:hover{
+    background:#dbc7ff !important;
+}
+
+/*========== EQUAL ==========*/
+
+.equal{
+    background:#9f73ff !important;
+    color:#ffffff !important;
+    font-size:24px;
+    animation:pulse 2s infinite;
+    border-radius:20px;
+}
+
+.equal:hover{
+    background:#8f5fff !important;
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.05);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+/*========== ZERO ==========*/
+
+.zero{
+    grid-column:span 2;
+}
+
+/*========== SCROLLBAR ==========*/
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#b999ff;
+    border-radius:20px;
+}
+
+/*========== RESPONSIVE ==========*/
+
+@media(max-width:430px){
+
+    .calculator{
+        width:95%;
+        padding:20px;
+    }
+
+    #display{
+        height:68px;
+        font-size:26px;
+    }
+
+    .buttons button,
+    .scientific-panel button{
+        height:56px;
+        font-size:18px;
+    }
+
+    .top h2{
+        font-size:24px;
+    }
+
+    .toggle-btn{
+        font-size:15px;
+    }
+
+}
+
+/*========== EXTRA GLOW ==========*/
+
+.buttons button:hover{
+    filter:brightness(1.02);
+}
+
+.scientific-panel button:hover{
+    box-shadow:0 8px 18px rgba(145,110,220,.20);
+}
+
+.toggle-btn:active,
+.buttons button:active,
+.scientific-panel button:active{
+    transition:.08s;
+}
+
+.calculator::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:30px;
+    pointer-events:none;
+    border:1px solid rgba(255,255,255,.25);
+}
