@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Blobs -->
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+
+    <div class="calculator">
+        <!-- Heading -->
+        <div class="top">
+            <h2> Calculator </h2>
+        </div>
+
+        <!-- Display -->
+        <div class="display-box">
+            <input
+                type="text"
+                id="display"
+                placeholder="0"
+                readonly>
+        </div>
+
+        <!-- Scientific Toggle -->
+        <button id="toggleScientific" class="toggle-btn">
+            ✨ Scientific
+        </button>
+
+        <!-- Hidden Scientific Panel -->
+        <div id="scientificPanel" class="scientific-panel">
+
+            <button data-value="sin(">s</button>
+            <button data-value="cos(">c</button>
+            <button data-value="tan(">t</button>
+            <button data-value="log(">l</button>
+            <button data-value="ln(">n</button>
+            <button data-value="π">π</button>
+            <button data-value="e">e</button>
+            <button data-value="√(">√</button>
+            <button data-value="(">(</button>
+            <button data-value=")">)</button>
+            <button data-value="^">xʸ</button>
+            <button data-value="²">x²</button>
+        </div>
+
+        <!-- Main Calculator -->
+        <div class="buttons">
+            <button class="clear" data-value="AC">AC</button>
+            <button class="backspace" data-value="⌫">⌫</button>
+            <button class="operator" data-value="%">%</button>
+            <button class="operator" data-value="/">÷</button>
+
+            <button data-value="7">7</button>
+            <button data-value="8">8</button>
+            <button data-value="9">9</button>
+            <button class="operator" data-value="*">×</button>
+            <button data-value="4">4</button>
+            <button data-value="5">5</button>
+            <button data-value="6">6</button>
+            <button class="operator" data-value="-">−</button>
+            <button data-value="1">1</button>
+            <button data-value="2">2</button>
+            <button data-value="3">3</button>
+            <button class="operator" data-value="+">+</button>
+            <button class="zero" data-value="0">0</button>
+            <button data-value=".">.</button>
+            <button class="equal" data-value="=">=</button>
+        </div>
+
+        <div class="creator">
+         Designed & Developed by <span>Kanishka Goel</span>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>
